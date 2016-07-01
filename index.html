@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+  <head>
+    <meta charset="utf-8">
+    <title>Interview Scheudler</title>
+    <script src="scripts/vendors/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/arrayShuffler.js" charset="utf-8"></script>
+    <script src="scripts/interviews.js" charset="utf-8"></script>
+  </head>
+  <body ng-controller='interviewersController'>
+    <h2>Interview Scheduler</h2>
+    <div>
+      <h2>Students:</h2>
+      <input type="text" ng-model="studentIn" id="studentIn" value="" placeholder="Student Name">
+      <button type="button" name="button" ng-click="addStudent()">Add Student</button>
+      <p ng-repeat='student in students'>Student: {{ student.name }}, Interviews Scheduled: {{ student.interviews }}</p>
+    </div>
+    <div>
+      <h2>Interviewers:</h2>
+      <input type="text" ng-model="interviewerIn" id="interviewerIn" value="" placeholder="Interviewer Name">
+      <input type="text" ng-model="interviewerCompanyIn" id="interviewerCompanyIn" value="" placeholder="Company Name">
+      <button type="button" name="button" ng-click="addInterviewer()">Add Interviewer</button>
+    </div>
+    <div>
+      <h2>Interview Specifics:</h2>
+      <input type="text" ng-model="interviewStartTimeIn" id="interviewStartTimeIn" value="" placeholder="Start Hour">
+      <input type="text" ng-model="interviewTimeIn" id="interviewTimeIn" value="" placeholder="Length (min)">
+      <input type="text" ng-model="interviewCountIn" id="interviewCountIn" value="" placeholder="Number">
+      <button type="button" name="button" ng-click="setupInterviews()">Setup Interviews</button>
+      <table border=1 cellpadding=3 cellspacing=3>
+        <tr>
+          <th>Interviewer</th>
+          <th ng-repeat='time in interviewTimes'>{{ time }}</th>
+        </tr>
+        <tr ng-repeat='interviewer in interviewers'>
+          <td>
+            <b>{{ interviewer.name }}</b><br />{{ interviewer.company }}
+          </td>
+          <td ng-repeat='time in interviewTimes'>STUDENT</td>
+        </tr>
+        </table>
+    </div>
+
+  </body>
+</html>
