@@ -35,6 +35,7 @@ myApp.controller( 'interviewersController', [ '$scope', '$http', function( $scop
   }; // end add student
 
   $scope.setupInterviews = function(){
+    $scope.interviewTimes = [];
     console.log( 'in setupInterviews' );
     var myTime = $scope.interviewStartTimeIn;
     var timeMin = 0;
@@ -58,6 +59,10 @@ myApp.controller( 'interviewersController', [ '$scope', '$http', function( $scop
       timeMin+=Number( $scope.interviewTimeIn );
     }
     console.log( $scope.interviewTimes );
+    // clear inputs
+    $scope.interviewTimeIn='';
+    $scope.interviewCountIn='';
+    $scope.interviewStartTimeIn='';
   }; // end setup interviews
 
 }]);

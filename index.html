@@ -2,7 +2,12 @@
 <html ng-app='myApp'>
   <head>
     <meta charset="utf-8">
-    <title>Interview Scheudler</title>
+    <title>Interview Scheduler</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
     <script src="scripts/vendors/angular.min.js" charset="utf-8"></script>
     <script src="scripts/arrayShuffler.js" charset="utf-8"></script>
     <script src="scripts/interviews.js" charset="utf-8"></script>
@@ -13,7 +18,9 @@
       <h2>Students:</h2>
       <input type="text" ng-model="studentIn" id="studentIn" value="" placeholder="Student Name">
       <button type="button" name="button" ng-click="addStudent()">Add Student</button>
-      <p ng-repeat='student in students'>Student: {{ student.name }}, Interviews Scheduled: {{ student.interviews }}</p>
+      <ul>
+        <li ng-repeat='student in students'>{{ student.name }} ({{ student.interviews }})</li>
+      </ul>
     </div>
     <div>
       <h2>Interviewers:</h2>
@@ -27,7 +34,7 @@
       <input type="text" ng-model="interviewTimeIn" id="interviewTimeIn" value="" placeholder="Length (min)">
       <input type="text" ng-model="interviewCountIn" id="interviewCountIn" value="" placeholder="Number">
       <button type="button" name="button" ng-click="setupInterviews()">Setup Interviews</button>
-      <table border=1 cellpadding=3 cellspacing=3>
+      <table border=1 cellpadding=3 cellspacing=3 width=100%>
         <tr>
           <th>Interviewer</th>
           <th ng-repeat='time in interviewTimes'>{{ time }}</th>
@@ -38,7 +45,7 @@
           </td>
           <td ng-repeat='time in interviewTimes'>STUDENT</td>
         </tr>
-        </table>
+      </table>
     </div>
 
   </body>
